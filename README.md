@@ -36,7 +36,6 @@
 
          Method: GET
 
-          Will use the leafetjs library for plotting
 
   2. A view that lists all squirrel sightings with links to edit and add sightings
 
