@@ -1,8 +1,7 @@
 # Squirrel Tracker Project
 
 <ul>
-  <li> Group Name: Project Group 29 </li>
-  <li> Project Group 85 </li>
+  <li> Group Name: Project Group 85 </li>
   <li> Tools For Analytics (Section: 2) </li>
   <li> Contributors: Yongyi(Nikki)Zhao, Jieming Bian</li>
   <li> UNI: yz3706 ; jb4382 </li>
