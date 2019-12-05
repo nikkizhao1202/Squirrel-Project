@@ -27,3 +27,19 @@ def add(request):
     else:
         form = SquirrelForm()
     return render(request, 'squdata/add.html', {'form':form})
+
+def edit(request, unique_squirrel_id):
+    edit_instance = Squirreldata.objects.get(unique_squirrel_id = unique_squirrel_id)
+    if request.method == "POST":
+        form = SquirrelForm(request.POST, instance)
+        if form.is_valid():
+            form.save()
+            return redirect('/squdata/')
+    else:
+        form = SquirrelForm(instance = edit_instance)
+    return render(request, 'squdata/edit.html', {'form': form, 'unique_squirrel_id':unique_squirrel_id})
+
+def stats(request):
+    squirrels = Squirreldata.onjects.all()
+    return render(request, 'squdata/stats.html', {'squirrels':squirrels}
+
