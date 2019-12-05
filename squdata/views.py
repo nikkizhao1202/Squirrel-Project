@@ -23,7 +23,8 @@ def add(request):
         form = SquirrelForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("/squdata/")
+            return redirect("/sightings/add")
     else:
         form = SquirrelForm()
     return render(request, 'squdata/add.html', {'form':form})
+
