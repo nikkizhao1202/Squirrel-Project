@@ -34,6 +34,7 @@ class Command(BaseCommand):
                         unique_squirrel_id= item['Unique Squirrel ID'],
                         shift=item['Shift'],
                         date=date,
+                        age = item['Age'],
                         fur_color=item['Primary Fur Color'],
                         location=item['Location'],
                         specific_location=item['Specific Location'],

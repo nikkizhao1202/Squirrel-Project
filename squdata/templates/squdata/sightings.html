@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <title> All Squirrel Settings </title>
+    <style>
+    h1 {
+      color: black;
+      text-align: center;
+      font-family: verdana;
+      font-size: 250%;
+    }
+    div {
+      font-size: 70%;
+      font-family: courier;
+
+    }
+     .topnav {
+    overflow: hidden;
+    background-color: #333;
+    padding:0;
+    margin:0;
+    }
+    .topnav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    }
+ 
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    thead{
+      color: white;
+      font-family: verdana;
+      text-align: center;
+    }
+
+    th { 
+      background-color: #1A1A1A; 
+    }
+
+    td{
+      background-color:#E3E3E3;
+    }
+    .nextpagetoken{
+      marign-top: 100px;
+      font-size: 90%
+    }
+
+  </style>
+  </head>
+  
+  <body>
+      <h1>Sighting of All Squirrels</h1>
+      <div class='topnav'> 
+        <a href="/sightings/stats/">General Stats About Sightings</a>
+        <a href="/sightings/add"> Add New Sightings</a>
+      </div>
+    <br>
+    <table border="1" class="tbl">
+      <thead style="background-color:black;">
+        <tr>
+          <th>Latitude</th>
+          <th>Longitude</th>
+          <th>Unique_squirrel_id</th>
+          <th>Shift</th>
+          <th>Date</th>
+          <th>Age</th>
+          <th>Primary_fur_color</th>
+          <th>Location</th>
+          <th>Specific_location</th>
+          <th>Running</th>
+          <th>Chasing</th>
+          <th>Climbing</th>
+          <th>Eating</th>
+          <th>Foraging</th>
+          <th>Other_activities</th>
+          <th>Kuks</th>
+          <th>Quaas</th>
+          <th>Moans</th>
+          <th>Tail_flags</th>
+          <th>Tail_twitches</th>
+          <th>Approaches</th>
+          <th>Indifferent</th>
+          <th>Runs_from</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody >
+      {% for row in users %}
+        <tr>
+          <td>{{row.latitude}}</td>
+          <td>{{row.longitude}}</td>
+          <td>{{row.unique_squirrel_id}}</td>
+          <td>{{row.shift}}</td>
+          <td>{{row.date}}</td>
+          <td>{{row.age}}</td>
+          <td>{{row.fur_color}}</td>
+          <td>{{row.location}}</td>
+          <td>{{row.specific_location}}</td>
+          <td>{{row.running}}</td>
+          <td>{{row.chasing}}</td>
+          <td>{{row.climbing}}</td>
+          <td>{{row.eating}}</td>
+          <td>{{row.foraging}}</td>
+          <td>{{row.other_activities}}</td>
+          <td>{{row.kuks}}</td>
+          <td>{{row.quaas}}</td>
+          <td>{{row.moans}}</td>
+          <td>{{row.tail_flags}}</td>
+          <td>{{row.tail_twitches}}</td>
+          <td>{{row.approaches}}</td>
+          <td>{{row.indifferent}}</td>
+          <td>{{row.runs_from}}</td>
+          <td>
+            <a href="/sightings/{{row.unique_squirrel_id}}/">Edit</a>
+          </td>
+
+      {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="nextpagetoken">
+        {% if users.has_previous %}
+          <a href="?page=1">First</a>
+          <a href="?page={{ users.previous_page_number }}">Previous</a>
+        {% endif %}
+      
+        <span>{{ users.number }}</span>
+        <span">of</span>
+        <span>{{ users.paginator.num_pages }}</span>
+      
+        {% if users.has_next %}
+        <a href="?page={{ users.next_page_number }}">Next</a>
+        <a href="?page={{ users.paginator.num_pages }}">Last</a>
+        {% endif %}
+    </div>
+  </body>
+</html>
