@@ -11,6 +11,65 @@
 <p> Squirrel Tracker is a web application project which provides the users with the visualized sightings of squirrels on the map around Central Park at Manhattan, NYC. Specifically, it can import squirrel data and alls end users to add, update and edit data. 
 </p>
 
+## Details
+<ul>
+  <li> Management Commands </li>
+    <p> Import: A command that can be used to import the data from the 2018 census file (in CSV format). The file path should be specified at the command line after the name of the management command. 
+
+  ```sh
+  python manage.py import_squirrel_data /path/to/file.csv
+  ```
+
+  Export: A command that can be used to export the data in CSV format. The file path should be specified at the command line          
+  after the name of the management command.
+
+   ```sh
+  python manage.py export_squirrel_data /path/to/file.csv
+   ```
+   </p>
+  <li> Views </li>
+    <p>
+    
+  1. A view that shows a map that displays the location of the squirrel sightings on an OpenStreets map
+
+         Located at: /map
+
+         Method: GET
+
+          Will use the leafetjs library for plotting
+
+  2. A view that lists all squirrel sightings with links to edit and add sightings
+
+         Located at: /sightings
+
+         Method: GET
+
+  3. A view to update a particular sighting
+
+          Located at: /sightings/
+        
+          Method: POST
+
+  4. A view to create a new sighting
+
+          Located at: /sightings/add
+
+          Method: POST
+
+  5. A view to delete a sighting
+
+          Located at: /sightings/
+        
+          Method: DELETE
+
+  6. A view with general statistics about the sightings
+
+          Located at: /sightings/stats
+        
+         Method: GET
+ </p>
+</ul>
+
 ## Data Source
 We use squirrel data [**2018 Central Park Squirrel Census**](https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw) which was counted by the [**Squirrel Census**](https://www.thesquirrelcensus.com/). 
 
