@@ -11,14 +11,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         with open(options['website_path'], 'w', newline='') as csvfile:
-            field_names = [latitude,
-                        longitude,
-                        unique_squirrel_id,
-                        shift,
-                        date,
-                        age,
-                        fur_color,
-                        location,
+        names = [latitude, longitude, unique_squirrel_id, shift, date, age, fur_color, location,
                         specific_location,
                         running,
                         chasing,
@@ -33,8 +26,8 @@ class Command(BaseCommand):
                         tail_twitches,
                         approaches,
                         indifferent,
-                        runs_from]
-            writer = csv.writer(csvfile)
-            writer.writerow(field_names)
-            for instance in model.objects.all():
-                writer.writerow([getattr(instance, fi) for fi in field_names])
+                        runs_from,]
+        writer = csv.writer(f, quoting=csv.QUOTE_ALL)
+        writer.writerow(names)
+        for i in Squirreldata.objects.all():
+            writer.writerow([getattr(i, name) for name in names])
