@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
 import datetime, csv
-from sightings.models import Sightings
+from squdata.models import Squirreldata
 from django.apps import apps
 
 class Command(BaseCommand):
@@ -11,23 +11,23 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         with open(options['website_path'], 'w', newline='') as csvfile:
-        names = [latitude, longitude, unique_squirrel_id, shift, date, age, fur_color, location,
-                        specific_location,
-                        running,
-                        chasing,
-                        climbing,
-                        eating,
-                        foraging,
-                        other_activities,
-                        kuks,
-                        quaas,
-                        moans,
-                        tail_flags,
-                        tail_twitches,
-                        approaches,
-                        indifferent,
-                        runs_from,]
-        writer = csv.writer(f, quoting=csv.QUOTE_ALL)
-        writer.writerow(names)
-        for i in Squirreldata.objects.all():
-            writer.writerow([getattr(i, name) for name in names])
+            names = ['latitude', 'longitude', 'unique_squirrel_id', 'shift', 'date', 'age', 'fur_color', 'location',
+                        'specific_location',
+                        'running',
+                        'chasing',
+                        'climbing',
+                        'eating',
+                        'foraging',
+                        'other_activities',
+                        'kuks',
+                        'quaas',
+                        'moans',
+                        'tail_flags',
+                        'tail_twitches',
+                        'approaches',
+                        'indifferent',
+                        'runs_from']
+            writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+            writer.writerow(names)
+            for i in Squirreldata.objects.all():
+                writer.writerow([getattr(i, name) for name in names])

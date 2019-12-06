@@ -67,21 +67,22 @@
     </div>
     <table style="width:100%">
 	<tr>
-		<th>Unique_Squirrel_ID</th>
-		<th>Shift</th>
-		<th>Age</th>
-		<th>Color_notes</th>
-		<th>Specific_Location</th>
-		<th>Running</th>
+	<th>Count</th>
+	<th>Shift</th>
+	<th>Age</th>
+	<th>Color_notes</th>
+	<th>Specific_Location</th>
+	<th>Running</th>
 	</tr>
+	<td>{{squirrels.count}}</td>
 	{% for i in squirrels %}
 	<tr>
-		<th>{{i.unique_squirrel_id}}</th>
-		<th>{{i.shift}}</th>
-		<th>{{i.age}}</th>
-		<th>{{i.color_notes}}</th>
-		<th>{{i.specific_location</th>
-		<th>{{i.running}}</th>
+	<td>{{i.unique_squirrel_id}}</td>
+	<td>{{i.shift}}</td>
+	<td>{{i.age}}</td>
+	<td>{{i.color_notes}}</td>
+	<td>{{i.specific_location}}</td>
+	<td>{{i.running}}</td>
 	</tr>
 	{% endfor %}
     </table>
