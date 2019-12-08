@@ -12,7 +12,7 @@ class Squirreldata(models.Model):
 
     latitude = models.CharField(
         help_text=('latitude'),
-        max_length=16,
+        max_length=17,
     )
 
 
