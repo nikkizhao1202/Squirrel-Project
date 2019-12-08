@@ -60,7 +60,7 @@
   <body>
       <h1>Sighting of All Squirrels</h1>
       <div class='topnav'> 
-        <a href="/sightings/stats/">General Stats About Sightings</a>
+        <a href="/sightings/stats">General Stats About Sightings</a>
         <a href="/sightings/add"> Add New Sightings</a>
       </div>
     <br>
@@ -122,7 +122,6 @@
           <td>
             <a href="/sightings/{{row.unique_squirrel_id}}/">Edit</a>
           </td>
-
       {% endfor %}
       </tbody>
     </table>
@@ -134,7 +133,7 @@
         {% endif %}
       
         <span>{{ users.number }}</span>
-        <span">of</span>
+        <span>of</span>
         <span>{{ users.paginator.num_pages }}</span>
       
         {% if users.has_next %}
