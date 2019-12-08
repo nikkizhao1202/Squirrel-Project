@@ -3,7 +3,7 @@ from .models import Squirreldata
 from django.shortcuts import get_object_or_404, render, redirect
 from .forms import SquirrelForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from django.db.models import Count
 # Create your views here.
 def sightings(request):
     sqd = Squirreldata.objects.all()
@@ -44,6 +44,19 @@ def edit(request, unique_squirrel_id):
 
 def stats(request):
     squirrels = Squirreldata.objects.all()
-    return render(request, 'squdata/stats.html', {'squirrels':squirrels})
+    total = len(squirrels)
+    running = list(squirrels.values_list('running').annotate(Count('running')))
+    shift = list(squirrels.values_list('shift').annotate(Count('shift')))
+    climbing = list(squirrels.values_list('climbing').annotate(Count('climbing')))
+    eating = list(squirrels.values_list('eating').annotate(Count('eating')))
+    foraging = list(squirrels.values_list('foraging').annotate(Count('foraging')))
+    context = {'total': total,
+		'running': running,
+		'shift': shift,
+		'climbing': climbing,
+		'eating': eating,
+		'foraging': foraging,
+		}
+    return render(request, 'squdata/stats.html', context)
 
 
