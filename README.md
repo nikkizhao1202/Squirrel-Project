@@ -9,7 +9,7 @@
 
 ## Overview
 <p> Squirrel Tracker is a web application project which provides the users with the visualized sightings of squirrels on the map around Central Park at Manhattan, NYC. Specifically, it can import squirrel data and alls end users to add, update and edit data. 
-</p>
+</p >
 
 ## Details
 <ul>
@@ -26,7 +26,7 @@
    ```sh
   python manage.py export_squirrel_data /path/to/file.csv
    ```
-   </p>
+   </p >
   <li> Views </li>
     <p>
     
@@ -55,18 +55,12 @@
 
           Method: POST
 
-  5. A view to delete a sighting
-
-          Located at: /sightings/
-        
-          Method: DELETE
-
-  6. A view with general statistics about the sightings
+  5. A view with general statistics about the sightings
 
           Located at: /sightings/stats
         
          Method: GET
- </p>
+ </p >
 </ul>
 
 ## Data Source
@@ -79,16 +73,16 @@ We use squirrel data [**2018 Central Park Squirrel Census**](https://data.cityof
 </ul>
 
 ## Reference Matrial
-<ul>
-  <li>https://docs.djangoproject.com/en/3.0/intro/tutorial01/</li>
-  <li>https://docs.djangoproject.com/en/2.2/howto/custom-management-commands/</li>
-</ul>
+- [Django](https://www.djangoproject.com) 
+- [Customize Command](https://docs.djangoproject.com/en/2.2/howto/custom-management-commands/)
+- [Django-leaflet](https://django-leaflet.readthedocs.io/en/latest/)</li>
+
 
 ## Discussion and Development
 
-<p> Most development discussion is taking place on github in this repo.</p>
+<p> Most development discussion is taking place on github in this repo.</p >
 
 ## Contributing to Squirrel Tracker
 <p>
 This is a semester project dedicated for IEOR 4501 Tools for Analytics. Any contributions, bug reports, bug fixes, documentation improvements, enhancements to make this project better are warmly welcomed.
-</p>
+</p >
