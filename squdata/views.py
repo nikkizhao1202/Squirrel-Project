@@ -41,5 +41,18 @@ def edit(request, unique_squirrel_id):
 
 def stats(request):
     squirrels = Squirreldata.objects.all()
+    total = len(squirrels)
+    running = squirrels.values_list('running').annotate(Count('running'))
+    shift = squirrels.values_list('shift').annotate(Count('shift'))
+    climbing = squirrels.values_list('climbing').annotate(Count('climbing'))
+    eating = squirrels.values_list('eating').annotate(Count('eating'))
+    foraging = squirrels.values_list('foraging').annotate(Count('foraging'))
+    context = {'total': total,
+		'running': running,
+		'shift': shift,
+		'climbing': climbing,
+		'eating': eating,
+		'foraging': foraging,
+		}
     return render(request, 'squdata/stats.html', {'squirrels':squirrels})
 
