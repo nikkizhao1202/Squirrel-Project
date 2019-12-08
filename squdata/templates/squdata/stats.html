@@ -65,27 +65,19 @@
       <a href="/sightings/add/">Add New Sightings</a>
       <a href="/sightings/stats/">General Stats About Sightings</a>
     </div>
-    <table style="width:100%">
-	<tr>
-	<th>Count</th>
-	<th>Shift</th>
-	<th>Age</th>
-	<th>Color_notes</th>
-	<th>Specific_Location</th>
-	<th>Running</th>
-	</tr>
-	<td>{{squirrels.count}}</td>
-	{% for i in squirrels %}
-	<tr>
-	<td>{{i.unique_squirrel_id}}</td>
-	<td>{{i.shift}}</td>
-	<td>{{i.age}}</td>
-	<td>{{i.color_notes}}</td>
-	<td>{{i.specific_location}}</td>
-	<td>{{i.running}}</td>
-	</tr>
-	{% endfor %}
-    </table>
+    <main>
+        <li>In this data set, there is total {{total}} observations.</li>
+      	<br>
+      	<li>The number of Shift: {{shift}}</li>
+	<br>
+        <li>The number of Climbing: {{climbing}}</li>
+	<br>
+        <li>The number of Eating: {{eating}}</li>
+      	<br>
+     	<li>The number of Running: {{running}}</li>
+      	<br>
+      	<li>The number of Foraging: {{foraging}}</li></ul>
+    </main>
 
   </body>
 

@@ -3,7 +3,7 @@ from .models import Squirreldata
 from django.shortcuts import get_object_or_404, render, redirect
 from .forms import SquirrelForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from django.db.models import Count
 # Create your views here.
 def sightings(request):
     sqd = Squirreldata.objects.all()
