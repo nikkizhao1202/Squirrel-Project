@@ -23,10 +23,13 @@ def add(request):
         form = SquirrelForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect("/sightings/add")
             return redirect("/squdata/sightings/add")
+
     else:
         form = SquirrelForm()
     return render(request, 'squdata/add.html', {'form':form})
+
 
 def edit(request, unique_squirrel_id):
     edit_instance = Squirreldata.objects.get(unique_squirrel_id = unique_squirrel_id)
@@ -55,4 +58,5 @@ def stats(request):
 		'foraging': foraging,
 		}
     return render(request, 'squdata/stats.html', context)
+
 

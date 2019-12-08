@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
   
   <head>
@@ -66,11 +66,14 @@
       <a href="/sightings/stats/">General Stats About Sightings</a>
     </div>
     <p> 
-      <form action="" method="post">{% csrf_token %}
-      <table align="center">{{ form }}</table>
+      <form action="" method="post">
+        {% csrf_token %}
+      <table align="center">
+        {{ form }}
+      </table>
       <br>
       <div class="button">
-        <input type="submit" class='button' value="Submit" style="height:100px;width:100px">
+        <input type="submit" class='button' value="Submit">
       </div>
       </form>
 
